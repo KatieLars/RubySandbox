@@ -1,0 +1,1 @@
+--method that checks to see tree is balanced

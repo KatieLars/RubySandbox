@@ -12,6 +12,7 @@
   #--Binary Search Tree:
     #--parent node's value is greater than ALL values in the LEFT subtree
     #--parent node's value is lesser than ALL values in the RIGHT subtree
+  #--Balanced Binary Search Tree: we can search for a given value in O(log n) time
 def number_of_nodes(levels)
   #each level contains at least 2 nodes, except for the first level which contains 1
   #nodes = (2^levels-1)*2 - 1
@@ -29,5 +30,10 @@ end
 
 
 def binary_search_tree_checker(value)
-  #enters the value we are searching for
+  #enters the value we are searching for --works with attached class
+  #start at root node
+
+
+
+
 end

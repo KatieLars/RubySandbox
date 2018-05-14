@@ -1,4 +1,5 @@
-class BinaryTreeNode
+class BinaryTreeNode #note that this just determines the relationship between
+  #a parent and 2 child nodes
 
   attr_accessor :value
   attr_reader :left, :right
@@ -26,15 +27,28 @@ class BinaryTreeNode
     #start at root node
     #current_node = @root
     #check left side of tree
-    current_node = @root
     counter = -1
     until counter == height
-    if current_node > @left
-      current_node = @left
-      counter += 1
+      current_node = @root
+      if current_node > @left
+        current_node = @left
+        counter += 1
       #loop again
-    elsif current_node < @left || current_node == @left
-      return false
+      elsif current_node < @left || current_node == @left
+        return false
+      end
+    end
+    #right side
+    counter = -1
+    until counter == height
+      current_node = @root
+      if current_node < @right
+        current_node = @right
+        counter += 1
+        #loop again
+      elsif current_node < @right || current_node == @right
+        return false
+      end
     end
 
   end

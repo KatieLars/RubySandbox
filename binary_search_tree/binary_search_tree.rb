@@ -50,6 +50,20 @@ class BinaryTreeNode #note that this just determines the relationship between
       #1. make it non-recursive
       #2. Exit strategy (what will get us out of the loop)
       #3. recursive method call
+      current_node = @root
+      check_nodes(current_node)
+end
+
+def check_nodes(current_node)
+  if @left != nil & current_node > @left #if there is a left node if current node is greater than node on left
+    current_node = @left #current_node is left node
+    check_nodes(current_node)
+  elsif current_node < @right #right side of tree
+    current_node = @right #current_node is right node
+    check_nodes(current_node)
+  elsif @left == nil && @right == nil
+    current_node
+  end
 end
 
 

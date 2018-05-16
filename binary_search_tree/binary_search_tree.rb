@@ -27,7 +27,15 @@ class BinaryTreeNode #note that this just determines the relationship between
     current_node = @root
     left_nodes = []
     right_nodes = []
-    check_nodes(current_node, left_nodes, right_notes)
+    all_nodes = check_nodes(current_node, left_nodes, right_notes)
+    if all_nodes[0].max < @root && all_nodes[1].min > @root
+      #if the highest value in the left branch is less than the root
+      #and the lowest value in the right branch is greater than the root
+      #we have a valid search tree
+      return true
+    else
+      return false
+    end
   end
 
 def check_nodes(current_node, left_nodes, right_nodes)
@@ -39,11 +47,10 @@ def check_nodes(current_node, left_nodes, right_nodes)
     current_node = @right #current_node is right node
     right_nodes << current_node
     check_nodes(current_node)
-  elsif @left == nil && @right == nil
-    current_node
+  elsif @left == nil && @right == nil #no more branches
+    all_nodes = [left_nodes, right_nodes]
+    return all_nodes #returns an array of 2 arrays: first is left_nodes, second is right_nodes
   end
 end
-
-
 
 end

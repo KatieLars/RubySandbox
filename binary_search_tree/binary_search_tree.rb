@@ -41,12 +41,15 @@ class BinaryTreeNode #note that this just determines the relationship between
 def check_nodes(current_node, left_nodes, right_nodes)
   if @left != nil && current_node > @left #if there is a left node if current node is greater than node on left
     current_node = @left #current_node is left node
+    root = @root
+    #fuck this shit
+    #problem: how to get the new @left without changing @root
     left_nodes << current_node
-    check_nodes(current_node)
+    check_nodes(current_node, left_nodes, right_nodes)
   elsif @right != nil && current_node < @right #right side of tree
     current_node = @right #current_node is right node
     right_nodes << current_node
-    check_nodes(current_node)
+    check_nodes(current_node, left_nodes, right_nodes)
   elsif @left == nil && @right == nil #no more branches
     all_nodes = [left_nodes, right_nodes]
     return all_nodes #returns an array of 2 arrays: first is left_nodes, second is right_nodes

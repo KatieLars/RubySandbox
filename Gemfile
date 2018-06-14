@@ -7,3 +7,4 @@ end
 
 gem 'pry'
 gem 'curses'
+gem 'nokogiri'
